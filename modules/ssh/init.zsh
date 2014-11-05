@@ -55,4 +55,3 @@ fi
 
 # Clean up.
 unset _ssh_{dir,identities} _ssh_agent_{env,sock}
-
