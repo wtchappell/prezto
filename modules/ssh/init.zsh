@@ -31,7 +31,7 @@ if [[ ! -S "$SSH_AUTH_SOCK" ]]; then
     fi
   else
     # Start ssh-agent if not started.
-    if ! ps -U "$USER" -o pid,ucomm | grep -q "${SSH_AGENT_PID} ssh-agent"; then
+    if ! ps -U "$LOGNAME" -o pid,ucomm | grep -q -- "${SSH_AGENT_PID:--1} ssh-agent"; then
       eval "$(ssh-agent | sed '/^echo /d' | tee "$_ssh_agent_env")"
     fi
   fi
